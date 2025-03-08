@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<head>
+    <title>PaginaPrincipal</title>
+</head>
+<body>
+    <button class="For">Forum</button>
+<div class="PQDIV">
+    <input type="text" id="searchInput" placeholder="Pesquisar">
+    <button class="PQ" type="submit">
+        <img src="https://cdn-icons-png.flaticon.com/512/622/622669.png" class="Pqimg">
+    </button>
+</div>
+     <p id="resultado"></p>
+    <button class="Calq">Calculadora</button>
+    <button class="Prf">Perfil</button>
+</body>
+<style>
+    body{
+        background-color: rgb(211, 196, 58);
+    }
+    .Prf{
+        border-radius: 50%;
+        padding: 30px 30px;
+        background-color: rgb(250, 250, 250);
+        color: rgb(56, 56, 56);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 10%;
+        left: 85%;
+        transform: translate(-50%, -50%);
+
+    }
+    .PQ {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 10px;
+        margin-left: 5px;
+        position: absolute;
+     top: 10%;
+    left: 75%;
+    transform: translate(-50%, -50%);
+    }
+    .Pqimg{
+        width: 30px; 
+        height: 30px;
+    }
+    #searchInput {
+        padding: 10px;
+        width: 250px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        position: absolute;
+        top: 23%;
+        left: 75%;
+        transform: translate(-50%, -50%);
+        visibility: hidden; 
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+    }
+    #resultado {
+        text-align: center;
+        margin-top: 50px;
+        font-size: 18px;
+        font-weight: bold;
+        position: absolute;
+        top: 23%;
+        left: 75%;
+        transform: translate(-50%, -50%);
+    }
+    .PRINCI{
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+    }
+    .Calq{
+        padding: 20px 20px;
+        background-color: rgb(255, 255, 255);
+        display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+     position: absolute;
+     top: 10%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+    }
+    .For{
+        background-image: linear-gradient(to right, rgb(236, 228, 111), rgb(255, 250, 202));
+        color: rgb(12, 12, 12);
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        padding: 30px 30px;
+        display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+     position: absolute;
+     top: 10%;
+     left: 65%;
+    transform: translate(-50%, -50%);
+    }
+    
+</style>
+<script>
+    const botaoPesquisa = document.querySelector('.PQ');
+    const inputPesquisa = document.getElementById('searchInput');
+    const resultado = document.getElementById('resultado');
+
+    botaoPesquisa.addEventListener('click', function () {
+        if (inputPesquisa.style.visibility === "hidden" || inputPesquisa.style.visibility === "") {
+            inputPesquisa.style.visibility = "visible"; 
+            inputPesquisa.style.opacity = "1";
+            inputPesquisa.focus();
+        } else {
+            const termoBusca = inputPesquisa.value.trim();
+            if (termoBusca !== "") {
+                resultado.textContent = "Resultados: " + termoBusca;
+            } else {
+                resultado.textContent = "Insira Termo Valido.";
+            }
+        }
+    });
+</script>
