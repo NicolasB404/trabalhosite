@@ -5,7 +5,7 @@
 <body>
     <button class="For">Forum</button>
 <div class="PQDIV">
-    <input type="text" id="searchInput" placeholder="Pesquisar">
+    <input type="text" id="sri" placeholder="Pesquisar">
     <button class="PQ" type="submit">
         <img src="https://cdn-icons-png.flaticon.com/512/622/622669.png" class="Pqimg">
     </button>
@@ -13,6 +13,7 @@
      <p id="resultado"></p>
     <button class="Calq">Calculadora</button>
     <button class="Prf">Perfil</button>
+    <button class="gtp">IA</button>
 </body>
 <style>
     body{
@@ -33,13 +34,24 @@
         transform: translate(-50%, -50%);
 
     }
-    .PQ {
-        background-color: transparent;
+    .gtp{
+        padding:30px 30px;
+        background: linear-gradient(to right,rgb(68, 235, 26),rgb(204, 204, 204),rgb(241, 74, 74));
         border: none;
-        cursor: pointer;
-        padding: 10px;
-        margin-left: 5px;
+        color:rgb(0, 0, 0);
         position: absolute;
+        top: 10%;
+        left: 45%;
+        transform: translate(-50%, -50%);
+        cursor:pointer;
+    }
+    .PQ {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    margin-left: 5px;
+    position: absolute;
      top: 10%;
     left: 75%;
     transform: translate(-50%, -50%);
@@ -48,7 +60,7 @@
         width: 30px; 
         height: 30px;
     }
-    #searchInput {
+    #sri {
         padding: 10px;
         width: 250px;
         border: 1px solid #ccc;
@@ -106,7 +118,7 @@
 </style>
 <script>
     const botaoPesquisa = document.querySelector('.PQ');
-    const inputPesquisa = document.getElementById('searchInput');
+    const inputPesquisa = document.getElementById('sri');
     const resultado = document.getElementById('resultado');
 
     botaoPesquisa.addEventListener('click', function () {
