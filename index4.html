@@ -1,50 +1,60 @@
 <!DOCTYPE html>
-<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ajuda financeira</title>
+</head>
+<body>
+    <header>
+        <h1>Perfil</h1>
+    </header>
+    <div class="Info">
+<P>Nome do usuario</P>
+<P>Idade do usuario</P>
+<P>Email do ususario</P>
+</div>
+<button class="configura">
+    <img src="https://i.ibb.co/20wCnLgZ/Windows-Settings-app-icon.png" class="conf">
+</button>
+<button class="Bt1">Informações sobre suas dividas</button>
+</body>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #ffffff;
+            background-color: rgb(255, 255, 255);
         }
         header {
-            background-color: #f1fa7b;
+            background-color: rgba(248, 248, 63, 0.863);
             color: rgb(24, 24, 24);
             padding: 10px 0;
             text-align: center;
         }
-
-        header h1 {
-            margin: 0;
+        .configura{
+            top: 73%;
+            left: 2%;
+            transform: translate(-50%, -50%);
+            position: absolute;
+            background-color:rgb(255, 255, 46);
+            border:none;
         }
-        .fundoBranco{
-        color:rgb(0, 0, 0);
-        background-color: #ecf382;
+        .conf{
+            width: 30px ;
+            height:auto
+        }
+        .Info{
+            padding: 25px;
+            width: 150px;
+            background: rgb(245, 245, 86);
+        }
+        .Bt1{
+        color:rgb(19, 19, 19);
+        background-color: rgb(235, 235, 93);
         position: absolute;
-         top: 50%;
+         top: 30%;
          left: 90%;
         transform: translate(-50%, -50%);
         text-align: center;
         font-size: 30px;
         border: none;
     }
-        .main-content {
-            padding: 20px;
-            text-align: center;
-        }
     </style>
-</head>
-<body>
-    <header>
-        <h1>Perfil</h1>
-    </header>
-  <P>Nome do usuario</P>
-<P>Idade do usuario</P>
-<P>Cpf do usuario</P>
-<button class="fundoBranco">Informações sobre suas dividas</button>
-</body>
-</html>
