@@ -11,9 +11,38 @@
     </button>
 </div>
      <p id="resultado"></p>
-    <button class="Calq">Calculadora</button>
+    <button onclick="AbrCalq()"class="Calq">Calculadora</button>
     <button class="Prf">Perfil</button>
     <button class="gtp">IA</button>
+    <div class="calculadora" id="Calqid">
+        <button class="Fechar" onclick="fechrCalq()">X</button>
+        <input type="text" id="visor" readonly>
+        <div class="botoesCalcu">
+          <button onclick="limpar()">C</button>
+          <button onclick="apagar()">←</button>
+          <button onclick="adicionar('%')">%</button>
+          <button class="operador" onclick="adicionar('/')">/</button>
+      
+          <button onclick="adicionar('7')">7</button>
+          <button onclick="adicionar('8')">8</button>
+          <button onclick="adicionar('9')">9</button>
+          <button class="operador" onclick="adicionar('*')">*</button>
+      
+          <button onclick="adicionar('4')">4</button>
+          <button onclick="adicionar('5')">5</button>
+          <button onclick="adicionar('6')">6</button>
+          <button class="operador" onclick="adicionar('-')">-</button>
+      
+          <button onclick="adicionar('1')">1</button>
+          <button onclick="adicionar('2')">2</button>
+          <button onclick="adicionar('3')">3</button>
+          <button class="operador" onclick="adicionar('+')">+</button>
+      
+          <button onclick="adicionar('0')">0</button>
+          <button onclick="adicionar('.')">.</button>
+          <button onclick="calcular()" class="operador">=</button>
+        </div>
+      </div>
 </body>
 <style>
     body{
@@ -34,6 +63,58 @@
         transform: translate(-50%, -50%);
 
     }
+    .botoesCalcu{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 5px;
+        padding: 10px;
+        font-size: 18px;
+        border: none;
+        background-color: rgb(218, 218, 218);
+        color: rgb(14, 14, 14);
+        cursor: pointer;
+        transition: background-color 0.3s;
+        }
+        .botoesCalcu:hover{
+        background-color: rgb(122, 122, 122);
+        }
+        .operador{
+        grid-column: span2 ;
+        background-color: rgb(25, 177, 25);
+        }
+        .operador:hover{
+            background-color: rgb(4, 126, 4);
+        }
+     #visor {
+         width: 100%;
+         height: 40px;
+        font-size: 24px;
+        text-align: right;
+         margin-bottom: 10px;
+         padding: 5px;
+         background-color: white;
+         border: none;
+        }
+        .calculadora .Fechar{
+            background: rgb(247, 29, 29);
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            float: right;
+        }
+        .calculadora{
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+         background: rgb(185, 185, 6);
+         padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        z-index: 1000;
+        }
     .gtp{
         padding:30px 30px;
         background: linear-gradient(to right,rgb(68, 235, 26),rgb(204, 204, 204),rgb(241, 74, 74));
@@ -89,9 +170,10 @@
         align-items: flex-end;
     }
     .Calq{
-        padding: 20px 20px;
-        background-color: rgb(255, 255, 255);
-        display: flex;
+     padding: 20px 20px;
+     border: none;
+    background-color: rgb(243, 231, 57);
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -101,11 +183,11 @@
     transform: translate(-50%, -50%);
     }
     .For{
-        background-image: linear-gradient(to right, rgb(236, 228, 111), rgb(255, 250, 202));
-        color: rgb(12, 12, 12);
-        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-        padding: 30px 30px;
-        display: flex;
+    background-image: linear-gradient(to right, rgb(236, 228, 111), rgb(255, 250, 202));
+    color: rgb(12, 12, 12);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding: 30px 30px;
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -135,4 +217,33 @@
             }
         }
     });
+    function AbrCalq() {
+            document.getElementById('Calqid').style.display = 'block';
+        }
+
+        function fechrCalq() {
+            document.getElementById('Calqid').style.display = 'none';
+        }
+
+        function adicionar(valor) {
+            document.getElementById('visor').value += valor;
+        }
+
+        function limpar() {
+            document.getElementById('visor').value = '';
+        }
+
+        function apagar() {
+            var visor = document.getElementById('visor');
+            visor.value = visor.value.slice(0, -1);
+        }
+
+        function calcular() {
+            var visor = document.getElementById('visor');
+            try {
+                visor.value = eval(visor.value);
+            } catch (error) {
+                visor.value = 'Error';
+            }
+        }
 </script>
