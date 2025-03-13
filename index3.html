@@ -12,8 +12,7 @@
 </div>
      <p id="resultado"></p>
     <button onclick="AbrCalq()"class="Calq">Calculadora</button>
-    <button class="Prf">Perfil</button>
-    <button class="gtp">IA</button>
+    <button onclick="window.location.href='index4.html';" class="Prf">Perfil</button>
     <div class="calculadora" id="Calqid">
         <button class="Fechar" onclick="fechrCalq()">X</button>
         <input type="text" id="visor" readonly>
@@ -115,17 +114,6 @@
         box-shadow: 0 0 10px rgba(0,0,0,0.2);
         z-index: 1000;
         }
-    .gtp{
-        padding:30px 30px;
-        background: linear-gradient(to right,rgb(68, 235, 26),rgb(204, 204, 204),rgb(241, 74, 74));
-        border: none;
-        color:rgb(0, 0, 0);
-        position: absolute;
-        top: 10%;
-        left: 45%;
-        transform: translate(-50%, -50%);
-        cursor:pointer;
-    }
     .PQ {
     background-color: transparent;
     border: none;
